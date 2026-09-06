@@ -18,7 +18,7 @@
             background: linear-gradient(145deg, #1a0f0a 0%, #2c1f1a 30%, #3d2c25 55%, #2c1f1a 80%, #1a0f0a 100%);
             font-family: 'Playfair Display', serif;
             min-height: 100vh;
-            padding: 1rem;
+            padding: 2rem 1.5rem;
             overflow-x: hidden;
             position: relative;
         }
@@ -62,13 +62,13 @@
         /* ===== ХЕДЕР ===== */
         .header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
             position: relative;
             z-index: 10;
         }
 
         .header h1 {
-            font-size: clamp(2rem, 6vw, 4rem);
+            font-size: 4rem;
             font-weight: 400;
             color: #f0dfd0;
             letter-spacing: 4px;
@@ -80,7 +80,7 @@
         .header h1::before {
             content: "✦";
             margin-right: 20px;
-            font-size: clamp(1rem, 3vw, 2.4rem);
+            font-size: 2.4rem;
             opacity: 0.4;
             color: #dbbca8;
         }
@@ -88,7 +88,7 @@
         .header h1::after {
             content: "✦";
             margin-left: 20px;
-            font-size: clamp(1rem, 3vw, 2.4rem);
+            font-size: 2.4rem;
             opacity: 0.4;
             color: #dbbca8;
         }
@@ -96,7 +96,7 @@
         .subhead {
             font-family: 'Quicksand', sans-serif;
             font-weight: 300;
-            font-size: clamp(0.8rem, 2vw, 1.3rem);
+            font-size: 1.3rem;
             color: #d4b8a5;
             letter-spacing: 8px;
             margin-top: 0.5rem;
@@ -116,12 +116,13 @@
             border-radius: 4px 4px 20px 20px;
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
             background: #f5efe8;
-            padding: 8px 8px 20px 8px;
+            padding: 12px 12px 30px 12px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2);
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 220px;
             cursor: pointer;
             z-index: 10;
             transform-origin: center bottom;
@@ -130,10 +131,10 @@
         .float-photo::after {
             content: '';
             position: absolute;
-            top: 8px;
-            left: 8px;
-            right: 8px;
-            bottom: 20px;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 30px;
             border-radius: 2px;
             box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.08);
             pointer-events: none;
@@ -214,7 +215,7 @@
             font-style: italic;
             font-weight: 400;
             color: #f0dfd0;
-            padding: 0.4rem 1rem;
+            padding: 0.6rem 1.4rem;
             background: rgba(44, 31, 26, 0.5);
             backdrop-filter: blur(8px);
             border-radius: 60px 12px 60px 12px;
@@ -222,7 +223,7 @@
             transition: all 0.3s ease;
             cursor: default;
             z-index: 8;
-            font-size: clamp(0.65rem, 1.5vw, 1.15rem);
+            font-size: 1.15rem;
             line-height: 1.5;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -236,8 +237,8 @@
         }
 
         .text-note.large {
-            font-size: clamp(0.9rem, 2.5vw, 1.6rem);
-            padding: 0.6rem 1.2rem;
+            font-size: 1.6rem;
+            padding: 1.2rem 2.2rem;
             border-radius: 80px 16px 80px 16px;
             background: rgba(44, 31, 26, 0.4);
         }
@@ -290,7 +291,7 @@
         .sparkle {
             position: absolute;
             color: rgba(220, 195, 175, 0.15);
-            font-size: clamp(0.8rem, 2vw, 2rem);
+            font-size: 2rem;
             z-index: 1;
             animation: twinkle 3s infinite alternate;
             pointer-events: none;
@@ -347,7 +348,7 @@
         }
 
         .big-quote p {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-size: 1.8rem;
             font-weight: 400;
             color: #f0dfd0;
             line-height: 1.8;
@@ -361,7 +362,7 @@
             font-weight: 300;
             color: #d4b8a5;
             letter-spacing: 4px;
-            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            font-size: 1rem;
         }
 
         /* ===== МОДАЛЬНОЕ ОКНО ===== */
@@ -390,11 +391,11 @@
         }
 
         .modal-content {
-            max-width: 95vw;
-            max-height: 85vh;
+            max-width: 80vw;
+            max-height: 80vh;
             background: #f5efe8;
             border-radius: 8px 8px 30px 30px;
-            padding: 15px 15px 30px 15px;
+            padding: 20px 20px 35px 20px;
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.05);
             position: relative;
@@ -416,15 +417,15 @@
 
         .modal-close {
             position: absolute;
-            top: -12px;
-            right: -12px;
-            width: 36px;
-            height: 36px;
+            top: -16px;
+            right: -16px;
+            width: 48px;
+            height: 48px;
             background: #5a3f32;
             border: 2px solid rgba(200, 170, 150, 0.3);
             border-radius: 50%;
             color: #f0dfd0;
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -445,7 +446,7 @@
             color: #4d3830;
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            font-size: 1.2rem;
             margin-top: 14px;
             padding: 0 10px;
             font-weight: 400;
@@ -495,8 +496,8 @@
         /* Конверт */
         .envelope {
             position: relative;
-            width: clamp(200px, 80vw, 300px);
-            height: clamp(140px, 55vw, 200px);
+            width: 300px;
+            height: 200px;
             background: #d4b8a5;
             border-radius: 8px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -544,7 +545,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: clamp(1.8rem, 8vw, 3rem);
+            font-size: 3rem;
             z-index: 3;
             animation: heartBeat 1.5s ease-in-out infinite;
             pointer-events: none;
@@ -585,7 +586,7 @@
 
         .card-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            font-size: 1.6rem;
             font-weight: 400;
             color: #4d3830;
             margin-bottom: 8px;
@@ -606,7 +607,7 @@
             color: #7a5a4b;
             text-align: center;
             line-height: 1.6;
-            font-size: clamp(0.75rem, 2vw, 1rem);
+            font-size: 1rem;
             max-width: 90%;
             opacity: 0.85;
         }
@@ -614,7 +615,7 @@
         .card-content .signature {
             font-family: 'Quicksand', sans-serif;
             font-weight: 300;
-            font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+            font-size: 0.9rem;
             color: #b28b7a;
             margin-top: 12px;
             letter-spacing: 2px;
@@ -631,10 +632,10 @@
             backdrop-filter: blur(8px);
             border: 1px solid rgba(200, 170, 150, 0.2);
             color: #f0dfd0;
-            padding: 6px 18px;
+            padding: 8px 24px;
             border-radius: 40px;
             font-family: 'Quicksand', sans-serif;
-            font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+            font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.3s ease;
             z-index: 10;
@@ -655,7 +656,7 @@
             transform: translateX(-50%);
             font-family: 'Quicksand', sans-serif;
             font-weight: 300;
-            font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+            font-size: 0.8rem;
             color: rgba(240, 223, 208, 0.5);
             letter-spacing: 4px;
             white-space: nowrap;
@@ -669,6 +670,127 @@
             50% { opacity: 0.8; }
         }
 
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 1100px) {
+            .float-photo {
+                width: 180px;
+            }
+            .text-note {
+                font-size: 1rem;
+            }
+            .text-note.large {
+                font-size: 1.3rem;
+                padding: 0.8rem 1.6rem;
+            }
+            .big-quote p {
+                font-size: 1.4rem;
+            }
+            .modal-content {
+                max-width: 90vw;
+                padding: 14px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .float-photo {
+                width: 140px;
+                padding: 8px 8px 22px 8px;
+            }
+            .float-photo .polaroid-text {
+                font-size: 0.65rem;
+                min-height: 1.4rem;
+                margin-top: 5px;
+            }
+            .text-note {
+                font-size: 0.85rem;
+                padding: 0.3rem 0.8rem;
+            }
+            .text-note.large {
+                font-size: 1.1rem;
+                padding: 0.6rem 1.2rem;
+            }
+            .header h1 {
+                font-size: 2.4rem;
+            }
+            .header h1::before,
+            .header h1::after {
+                font-size: 1.4rem;
+                margin: 0 10px;
+            }
+            .big-quote p {
+                font-size: 1.1rem;
+            }
+            .big-quote {
+                width: 92%;
+                padding: 1.5rem 1rem;
+            }
+            .modal-content {
+                max-width: 95vw;
+                padding: 12px 12px 25px 12px;
+            }
+            .modal-close {
+                width: 36px;
+                height: 36px;
+                font-size: 1.4rem;
+                top: -12px;
+                right: -12px;
+            }
+            .envelope {
+                width: 240px;
+                height: 160px;
+            }
+            .envelope-heart {
+                font-size: 2.2rem;
+            }
+            .card-content h2 {
+                font-size: 1.3rem;
+            }
+            .card-content p {
+                font-size: 0.85rem;
+            }
+            .envelope-hint {
+                font-size: 0.65rem;
+            }
+            .close-envelope {
+                font-size: 0.7rem;
+                padding: 6px 18px;
+                bottom: -45px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .float-photo {
+                width: 110px;
+                padding: 6px 6px 18px 6px;
+            }
+            .float-photo .polaroid-text {
+                font-size: 0.55rem;
+                min-height: 1.2rem;
+                margin-top: 4px;
+            }
+            .text-note {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+            .text-note.large {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .envelope {
+                width: 200px;
+                height: 140px;
+            }
+            .envelope-heart {
+                font-size: 1.8rem;
+            }
+            .card-content h2 {
+                font-size: 1.1rem;
+            }
+            .card-content p {
+                font-size: 0.75rem;
+            }
+        }
+
         /* ===== ФУТЕР ===== */
         .footer {
             text-align: center;
@@ -676,7 +798,7 @@
             font-weight: 300;
             color: #9a7a68;
             letter-spacing: 2px;
-            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+            font-size: 0.9rem;
             border-top: 1px solid rgba(200, 170, 150, 0.1);
             padding-top: 2rem;
             margin-top: 3rem;
@@ -700,7 +822,7 @@
         </div>
 
         <!-- ===== СКРАПБУК ===== -->
-        <div class="scrapbook" id="scrapbook">
+        <div class="scrapbook">
 
             <!-- ===== ДЕКОРАТИВНЫЕ ЗВЁЗДОЧКИ ===== -->
             <div class="sparkle" style="left: 5%; top: 100px;">✦</div>
@@ -712,8 +834,8 @@
             <div class="sparkle" style="left: 8%; top: 2400px; animation-delay: 0.6s;">✦</div>
             <div class="sparkle" style="right: 10%; top: 2800px; animation-delay: 1.2s;">✦</div>
 
-            <!-- ===== ВЕРЁВКА (SVG) ===== -->
-            <svg class="rope-svg" id="ropeSvg" viewBox="0 0 1600 3500" preserveAspectRatio="none">
+            <!-- ===== ВЕРЁВКА (SVG) - с сердцем по центру ===== -->
+            <svg class="rope-svg" viewBox="0 0 1600 3500" preserveAspectRatio="none">
                 <defs>
                     <linearGradient id="ropeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" stop-color="#8b5a3c" />
@@ -727,31 +849,31 @@
                 </defs>
 
                 <!-- Ряд 1 -->
-                <path id="rope1" class="rope-line" d="M 0 70 C 200 110, 300 90, 450 100 S 800 80, 950 110 S 1300 70, 1600 90" />
+                <path class="rope-line" d="M 0 70 C 200 110, 300 90, 450 100 S 800 80, 950 110 S 1300 70, 1600 90" />
 
                 <!-- Ряд 2 -->
-                <path id="rope2" class="rope-line" d="M 1600 410 C 1450 450, 1300 420, 1150 430 S 800 450, 650 440 S 300 410, 0 430" />
+                <path class="rope-line" d="M 1600 410 C 1450 450, 1300 420, 1150 430 S 800 450, 650 440 S 300 410, 0 430" />
 
                 <!-- Ряд 3 -->
-                <path id="rope3" class="rope-line" d="M 0 770 C 200 810, 350 790, 500 800 S 900 780, 1050 800 S 1400 790, 1600 810" />
+                <path class="rope-line" d="M 0 770 C 200 810, 350 790, 500 800 S 900 780, 1050 800 S 1400 790, 1600 810" />
 
                 <!-- Ряд 4 -->
-                <path id="rope4" class="rope-line" d="M 1600 1150 C 1450 1190, 1300 1160, 1150 1170 S 800 1190, 650 1180 S 300 1150, 0 1170" />
+                <path class="rope-line" d="M 1600 1150 C 1450 1190, 1300 1160, 1150 1170 S 800 1190, 650 1180 S 300 1150, 0 1170" />
 
                 <!-- Ряд 5 -->
-                <path id="rope5" class="rope-line" d="M 0 1530 C 200 1570, 350 1550, 500 1560 S 900 1540, 1050 1560 S 1400 1550, 1600 1570" />
+                <path class="rope-line" d="M 0 1530 C 200 1570, 350 1550, 500 1560 S 900 1540, 1050 1560 S 1400 1550, 1600 1570" />
 
                 <!-- Ряд 6 -->
-                <path id="rope6" class="rope-line" d="M 1600 1910 C 1450 1950, 1300 1920, 1150 1930 S 800 1950, 650 1940 S 300 1910, 0 1930" />
+                <path class="rope-line" d="M 1600 1910 C 1450 1950, 1300 1920, 1150 1930 S 800 1950, 650 1940 S 300 1910, 0 1930" />
 
                 <!-- Ряд 7 -->
-                <path id="rope7" class="rope-line" d="M 0 2310 C 200 2350, 350 2330, 500 2340 S 900 2320, 1050 2340 S 1400 2330, 1600 2350" />
+                <path class="rope-line" d="M 0 2310 C 200 2350, 350 2330, 500 2340 S 900 2320, 1050 2340 S 1400 2330, 1600 2350" />
 
                 <!-- Ряд 8 -->
-                <path id="rope8" class="rope-line" d="M 1600 2710 C 1450 2750, 1300 2720, 1150 2730 S 800 2750, 650 2740 S 300 2710, 0 2730" />
+                <path class="rope-line" d="M 1600 2710 C 1450 2750, 1300 2720, 1150 2730 S 800 2750, 650 2740 S 300 2710, 0 2730" />
 
-                <!-- ===== ВЕРЁВКА С СЕРДЦЕМ ПО ЦЕНТРУ ===== -->
-                <path id="ropeHeart" class="rope-line" d="
+                <!-- ===== ВЕРЁВКА С СЕРДЦЕМ ПО ЦЕНТРУ (идёт слева направо, обвивается в сердце) ===== -->
+                <path class="rope-line" d="
                     M 0 3050
                     C 200 3050, 400 3040, 600 3050
                     C 700 3055, 750 3060, 780 3080
@@ -989,6 +1111,7 @@
             const closeBtn = document.getElementById('closeEnvelope');
             let isOpen = false;
 
+            // Открытие по клику на конверт
             envelope.addEventListener('click', function(e) {
                 e.stopPropagation();
                 if (!isOpen) {
@@ -999,6 +1122,7 @@
                 }
             });
 
+            // Закрытие открытки
             function closeEnvelope() {
                 overlay.classList.add('hidden');
                 setTimeout(() => {
@@ -1125,96 +1249,6 @@
                     }, 400);
                 }, 2500);
             }
-
-            // =============================================
-            // === АДАПТИВНОСТЬ ЧЕРЕЗ JAVASCRIPT ===
-            // =============================================
-            const scrapbook = document.getElementById('scrapbook');
-            const ropeSvg = document.getElementById('ropeSvg');
-
-            // Базовые координаты (для ширины 1600px)
-            const baseItems = [
-                // Фото: [left%, top_px, width_px, rotate]
-                { type: 'photo', left: 2, top: 40, width: 220, rot: -3 },
-                { type: 'text', left: 16, top: 100, width: 220, rot: 2 },
-                { type: 'photo', left: 28, top: 30, width: 220, rot: 5 },
-                { type: 'text', left: 42, top: 80, width: 220, rot: -4 },
-                { type: 'photo', left: 55, top: 20, width: 220, rot: -6 },
-                { type: 'text', left: 72, top: 60, width: 220, rot: 3 },
-                { type: 'photo', left: 85, top: 50, width: 220, rot: 4 },
-                { type: 'photo', left: 5, top: 380, width: 220, rot: -5 },
-                { type: 'text', left: 22, top: 420, width: 220, rot: -2 },
-                { type: 'photo', left: 40, top: 340, width: 220, rot: 7 },
-                { type: 'text', left: 58, top: 390, width: 220, rot: 4 },
-                { type: 'photo', left: 72, top: 350, width: 220, rot: -4 },
-                { type: 'text', left: 88, top: 400, width: 220, rot: -6 },
-                { type: 'photo', left: 0, top: 720, width: 220, rot: 6 },
-                { type: 'text', left: 15, top: 780, width: 220, rot: -3 },
-                { type: 'photo', left: 25, top: 700, width: 220, rot: -7 },
-                { type: 'text', left: 44, top: 760, width: 220, rot: 5 },
-                { type: 'photo', left: 58, top: 710, width: 220, rot: 3 },
-                { type: 'text', left: 76, top: 770, width: 220, rot: -4 },
-                { type: 'photo', left: 88, top: 730, width: 220, rot: -2 },
-                { type: 'photo', left: 3, top: 1100, width: 220, rot: -4 },
-                { type: 'text', left: 20, top: 1160, width: 220, rot: 2 },
-                { type: 'photo', left: 38, top: 1080, width: 220, rot: 6 },
-                { type: 'text', left: 56, top: 1140, width: 220, rot: -5 },
-                { type: 'photo', left: 70, top: 1090, width: 220, rot: -3 },
-                { type: 'text', left: 86, top: 1150, width: 220, rot: 4 },
-                { type: 'photo', left: 10, top: 1480, width: 220, rot: 5 },
-                { type: 'text', left: 28, top: 1540, width: 220, rot: -2 },
-                { type: 'photo', left: 45, top: 1460, width: 220, rot: -6 },
-                { type: 'text', left: 63, top: 1520, width: 220, rot: 3 },
-                { type: 'photo', left: 80, top: 1470, width: 220, rot: 4 },
-                { type: 'photo', left: 2, top: 1860, width: 220, rot: -3 },
-                { type: 'text', left: 18, top: 1920, width: 220, rot: 2 },
-                { type: 'photo', left: 35, top: 1840, width: 220, rot: 7 },
-                { type: 'text', left: 52, top: 1900, width: 220, rot: -4 },
-                { type: 'photo', left: 68, top: 1850, width: 220, rot: -5 },
-                { type: 'text', left: 84, top: 1910, width: 220, rot: 3 },
-                { type: 'photo', left: 6, top: 2260, width: 220, rot: -4 },
-                { type: 'text', left: 24, top: 2320, width: 220, rot: 2 },
-                { type: 'photo', left: 42, top: 2240, width: 220, rot: 5 },
-                { type: 'text', left: 60, top: 2300, width: 220, rot: -3 },
-                { type: 'photo', left: 78, top: 2250, width: 220, rot: -6 },
-                { type: 'photo', left: 4, top: 2660, width: 220, rot: 3 },
-                { type: 'text', left: 22, top: 2720, width: 220, rot: -4 },
-                { type: 'photo', left: 42, top: 2640, width: 220, rot: -5 },
-                { type: 'text', left: 60, top: 2700, width: 220, rot: 2 },
-                { type: 'photo', left: 78, top: 2650, width: 220, rot: 6 }
-            ];
-
-            // Функция адаптации
-            function adaptLayout() {
-                const width = window.innerWidth;
-                const scale = Math.min(width / 1600, 1); // Масштаб от 1 до 0.2
-                const photoWidth = Math.max(100, 220 * scale);
-                const scrapbookHeight = 3500 * Math.max(scale, 0.4); // Высота уменьшается
-
-                scrapbook.style.minHeight = scrapbookHeight + 'px';
-
-                // Применяем к фото и текстам
-                const items = document.querySelectorAll('.float-photo, .text-note');
-                items.forEach((item, i) => {
-                    if (baseItems[i]) {
-                        const base = baseItems[i];
-                        item.style.left = (base.left * width / 100) + 'px';
-                        item.style.top = (base.top * scale) + 'px';
-                        item.style.width = photoWidth + 'px';
-                        item.style.transform = `rotate(${base.rot}deg)`;
-                    }
-                });
-
-                // Обновляем SVG (масштабируем viewBox)
-                ropeSvg.setAttribute('viewBox', `0 0 ${width} ${scrapbookHeight}`);
-            }
-
-            // Вызываем при загрузке и изменении окна
-            window.addEventListener('load', adaptLayout);
-            window.addEventListener('resize', adaptLayout);
-
-            // Первый запуск
-            adaptLayout();
         })();
     </script>
 </body>
