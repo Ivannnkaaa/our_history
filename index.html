@@ -116,13 +116,12 @@
             border-radius: 4px 4px 20px 20px;
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
             background: #f5efe8;
-            padding: clamp(6px, 1vw, 12px) clamp(6px, 1vw, 12px) clamp(18px, 2vw, 30px) clamp(6px, 1vw, 12px);
+            padding: 8px 8px 20px 8px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2);
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: clamp(100px, 14vw, 220px);
             cursor: pointer;
             z-index: 10;
             transform-origin: center bottom;
@@ -131,10 +130,10 @@
         .float-photo::after {
             content: '';
             position: absolute;
-            top: clamp(6px, 1vw, 12px);
-            left: clamp(6px, 1vw, 12px);
-            right: clamp(6px, 1vw, 12px);
-            bottom: clamp(18px, 2vw, 30px);
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 20px;
             border-radius: 2px;
             box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.08);
             pointer-events: none;
@@ -192,7 +191,7 @@
         .float-photo .polaroid-text {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: clamp(0.5rem, 1vw, 0.85rem);
+            font-size: 0.85rem;
             color: #4d3830;
             margin-top: 8px;
             text-align: center;
@@ -215,7 +214,7 @@
             font-style: italic;
             font-weight: 400;
             color: #f0dfd0;
-            padding: clamp(0.3rem, 1vw, 0.6rem) clamp(0.8rem, 1.5vw, 1.4rem);
+            padding: 0.4rem 1rem;
             background: rgba(44, 31, 26, 0.5);
             backdrop-filter: blur(8px);
             border-radius: 60px 12px 60px 12px;
@@ -238,7 +237,7 @@
 
         .text-note.large {
             font-size: clamp(0.9rem, 2.5vw, 1.6rem);
-            padding: clamp(0.6rem, 1.5vw, 1.2rem) clamp(1.2rem, 2vw, 2.2rem);
+            padding: 0.6rem 1.2rem;
             border-radius: 80px 16px 80px 16px;
             background: rgba(44, 31, 26, 0.4);
         }
@@ -701,7 +700,7 @@
         </div>
 
         <!-- ===== СКРАПБУК ===== -->
-        <div class="scrapbook">
+        <div class="scrapbook" id="scrapbook">
 
             <!-- ===== ДЕКОРАТИВНЫЕ ЗВЁЗДОЧКИ ===== -->
             <div class="sparkle" style="left: 5%; top: 100px;">✦</div>
@@ -713,8 +712,8 @@
             <div class="sparkle" style="left: 8%; top: 2400px; animation-delay: 0.6s;">✦</div>
             <div class="sparkle" style="right: 10%; top: 2800px; animation-delay: 1.2s;">✦</div>
 
-            <!-- ===== ВЕРЁВКА (SVG) - с сердцем по центру ===== -->
-            <svg class="rope-svg" viewBox="0 0 1600 3500" preserveAspectRatio="none">
+            <!-- ===== ВЕРЁВКА (SVG) ===== -->
+            <svg class="rope-svg" id="ropeSvg" viewBox="0 0 1600 3500" preserveAspectRatio="none">
                 <defs>
                     <linearGradient id="ropeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" stop-color="#8b5a3c" />
@@ -728,31 +727,31 @@
                 </defs>
 
                 <!-- Ряд 1 -->
-                <path class="rope-line" d="M 0 70 C 200 110, 300 90, 450 100 S 800 80, 950 110 S 1300 70, 1600 90" />
+                <path id="rope1" class="rope-line" d="M 0 70 C 200 110, 300 90, 450 100 S 800 80, 950 110 S 1300 70, 1600 90" />
 
                 <!-- Ряд 2 -->
-                <path class="rope-line" d="M 1600 410 C 1450 450, 1300 420, 1150 430 S 800 450, 650 440 S 300 410, 0 430" />
+                <path id="rope2" class="rope-line" d="M 1600 410 C 1450 450, 1300 420, 1150 430 S 800 450, 650 440 S 300 410, 0 430" />
 
                 <!-- Ряд 3 -->
-                <path class="rope-line" d="M 0 770 C 200 810, 350 790, 500 800 S 900 780, 1050 800 S 1400 790, 1600 810" />
+                <path id="rope3" class="rope-line" d="M 0 770 C 200 810, 350 790, 500 800 S 900 780, 1050 800 S 1400 790, 1600 810" />
 
                 <!-- Ряд 4 -->
-                <path class="rope-line" d="M 1600 1150 C 1450 1190, 1300 1160, 1150 1170 S 800 1190, 650 1180 S 300 1150, 0 1170" />
+                <path id="rope4" class="rope-line" d="M 1600 1150 C 1450 1190, 1300 1160, 1150 1170 S 800 1190, 650 1180 S 300 1150, 0 1170" />
 
                 <!-- Ряд 5 -->
-                <path class="rope-line" d="M 0 1530 C 200 1570, 350 1550, 500 1560 S 900 1540, 1050 1560 S 1400 1550, 1600 1570" />
+                <path id="rope5" class="rope-line" d="M 0 1530 C 200 1570, 350 1550, 500 1560 S 900 1540, 1050 1560 S 1400 1550, 1600 1570" />
 
                 <!-- Ряд 6 -->
-                <path class="rope-line" d="M 1600 1910 C 1450 1950, 1300 1920, 1150 1930 S 800 1950, 650 1940 S 300 1910, 0 1930" />
+                <path id="rope6" class="rope-line" d="M 1600 1910 C 1450 1950, 1300 1920, 1150 1930 S 800 1950, 650 1940 S 300 1910, 0 1930" />
 
                 <!-- Ряд 7 -->
-                <path class="rope-line" d="M 0 2310 C 200 2350, 350 2330, 500 2340 S 900 2320, 1050 2340 S 1400 2330, 1600 2350" />
+                <path id="rope7" class="rope-line" d="M 0 2310 C 200 2350, 350 2330, 500 2340 S 900 2320, 1050 2340 S 1400 2330, 1600 2350" />
 
                 <!-- Ряд 8 -->
-                <path class="rope-line" d="M 1600 2710 C 1450 2750, 1300 2720, 1150 2730 S 800 2750, 650 2740 S 300 2710, 0 2730" />
+                <path id="rope8" class="rope-line" d="M 1600 2710 C 1450 2750, 1300 2720, 1150 2730 S 800 2750, 650 2740 S 300 2710, 0 2730" />
 
-                <!-- ===== ВЕРЁВКА С СЕРДЦЕМ ПО ЦЕНТРУ (идёт слева направо, обвивается в сердце) ===== -->
-                <path class="rope-line" d="
+                <!-- ===== ВЕРЁВКА С СЕРДЦЕМ ПО ЦЕНТРУ ===== -->
+                <path id="ropeHeart" class="rope-line" d="
                     M 0 3050
                     C 200 3050, 400 3040, 600 3050
                     C 700 3055, 750 3060, 780 3080
@@ -990,7 +989,6 @@
             const closeBtn = document.getElementById('closeEnvelope');
             let isOpen = false;
 
-            // Открытие по клику на конверт
             envelope.addEventListener('click', function(e) {
                 e.stopPropagation();
                 if (!isOpen) {
@@ -1001,7 +999,6 @@
                 }
             });
 
-            // Закрытие открытки
             function closeEnvelope() {
                 overlay.classList.add('hidden');
                 setTimeout(() => {
@@ -1128,6 +1125,96 @@
                     }, 400);
                 }, 2500);
             }
+
+            // =============================================
+            // === АДАПТИВНОСТЬ ЧЕРЕЗ JAVASCRIPT ===
+            // =============================================
+            const scrapbook = document.getElementById('scrapbook');
+            const ropeSvg = document.getElementById('ropeSvg');
+
+            // Базовые координаты (для ширины 1600px)
+            const baseItems = [
+                // Фото: [left%, top_px, width_px, rotate]
+                { type: 'photo', left: 2, top: 40, width: 220, rot: -3 },
+                { type: 'text', left: 16, top: 100, width: 220, rot: 2 },
+                { type: 'photo', left: 28, top: 30, width: 220, rot: 5 },
+                { type: 'text', left: 42, top: 80, width: 220, rot: -4 },
+                { type: 'photo', left: 55, top: 20, width: 220, rot: -6 },
+                { type: 'text', left: 72, top: 60, width: 220, rot: 3 },
+                { type: 'photo', left: 85, top: 50, width: 220, rot: 4 },
+                { type: 'photo', left: 5, top: 380, width: 220, rot: -5 },
+                { type: 'text', left: 22, top: 420, width: 220, rot: -2 },
+                { type: 'photo', left: 40, top: 340, width: 220, rot: 7 },
+                { type: 'text', left: 58, top: 390, width: 220, rot: 4 },
+                { type: 'photo', left: 72, top: 350, width: 220, rot: -4 },
+                { type: 'text', left: 88, top: 400, width: 220, rot: -6 },
+                { type: 'photo', left: 0, top: 720, width: 220, rot: 6 },
+                { type: 'text', left: 15, top: 780, width: 220, rot: -3 },
+                { type: 'photo', left: 25, top: 700, width: 220, rot: -7 },
+                { type: 'text', left: 44, top: 760, width: 220, rot: 5 },
+                { type: 'photo', left: 58, top: 710, width: 220, rot: 3 },
+                { type: 'text', left: 76, top: 770, width: 220, rot: -4 },
+                { type: 'photo', left: 88, top: 730, width: 220, rot: -2 },
+                { type: 'photo', left: 3, top: 1100, width: 220, rot: -4 },
+                { type: 'text', left: 20, top: 1160, width: 220, rot: 2 },
+                { type: 'photo', left: 38, top: 1080, width: 220, rot: 6 },
+                { type: 'text', left: 56, top: 1140, width: 220, rot: -5 },
+                { type: 'photo', left: 70, top: 1090, width: 220, rot: -3 },
+                { type: 'text', left: 86, top: 1150, width: 220, rot: 4 },
+                { type: 'photo', left: 10, top: 1480, width: 220, rot: 5 },
+                { type: 'text', left: 28, top: 1540, width: 220, rot: -2 },
+                { type: 'photo', left: 45, top: 1460, width: 220, rot: -6 },
+                { type: 'text', left: 63, top: 1520, width: 220, rot: 3 },
+                { type: 'photo', left: 80, top: 1470, width: 220, rot: 4 },
+                { type: 'photo', left: 2, top: 1860, width: 220, rot: -3 },
+                { type: 'text', left: 18, top: 1920, width: 220, rot: 2 },
+                { type: 'photo', left: 35, top: 1840, width: 220, rot: 7 },
+                { type: 'text', left: 52, top: 1900, width: 220, rot: -4 },
+                { type: 'photo', left: 68, top: 1850, width: 220, rot: -5 },
+                { type: 'text', left: 84, top: 1910, width: 220, rot: 3 },
+                { type: 'photo', left: 6, top: 2260, width: 220, rot: -4 },
+                { type: 'text', left: 24, top: 2320, width: 220, rot: 2 },
+                { type: 'photo', left: 42, top: 2240, width: 220, rot: 5 },
+                { type: 'text', left: 60, top: 2300, width: 220, rot: -3 },
+                { type: 'photo', left: 78, top: 2250, width: 220, rot: -6 },
+                { type: 'photo', left: 4, top: 2660, width: 220, rot: 3 },
+                { type: 'text', left: 22, top: 2720, width: 220, rot: -4 },
+                { type: 'photo', left: 42, top: 2640, width: 220, rot: -5 },
+                { type: 'text', left: 60, top: 2700, width: 220, rot: 2 },
+                { type: 'photo', left: 78, top: 2650, width: 220, rot: 6 }
+            ];
+
+            // Функция адаптации
+            function adaptLayout() {
+                const width = window.innerWidth;
+                const scale = Math.min(width / 1600, 1); // Масштаб от 1 до 0.2
+                const photoWidth = Math.max(100, 220 * scale);
+                const scrapbookHeight = 3500 * Math.max(scale, 0.4); // Высота уменьшается
+
+                scrapbook.style.minHeight = scrapbookHeight + 'px';
+
+                // Применяем к фото и текстам
+                const items = document.querySelectorAll('.float-photo, .text-note');
+                items.forEach((item, i) => {
+                    if (baseItems[i]) {
+                        const base = baseItems[i];
+                        item.style.left = (base.left * width / 100) + 'px';
+                        item.style.top = (base.top * scale) + 'px';
+                        item.style.width = photoWidth + 'px';
+                        item.style.transform = `rotate(${base.rot}deg)`;
+                    }
+                });
+
+                // Обновляем SVG (масштабируем viewBox)
+                ropeSvg.setAttribute('viewBox', `0 0 ${width} ${scrapbookHeight}`);
+            }
+
+            // Вызываем при загрузке и изменении окна
+            window.addEventListener('load', adaptLayout);
+            window.addEventListener('resize', adaptLayout);
+
+            // Первый запуск
+            adaptLayout();
         })();
     </script>
 </body>
