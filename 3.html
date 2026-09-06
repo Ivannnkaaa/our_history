@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Наша история ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #1a0f0a 0%, #2c1f1a 30%, #3d2c25 55%, #2c1f1a 80%, #1a0f0a 100%);
+            font-family: 'Playfair Display', serif;
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(200, 160, 130, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(180, 140, 110, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(160, 120, 90, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-image:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== ХЕДЕР ===== */
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 400;
+            color: #f0dfd0;
+            letter-spacing: 4px;
+            display: inline-block;
+            position: relative;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1::before {
+            content: "✦";
+            margin-right: 20px;
+            font-size: 2.4rem;
+            opacity: 0.4;
+            color: #dbbca8;
+        }
+
+        .header h1::after {
+            content: "✦";
+            margin-left: 20px;
+            font-size: 2.4rem;
+            opacity: 0.4;
+            color: #dbbca8;
+        }
+
+        .subhead {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 300;
+            font-size: 1.3rem;
+            color: #d4b8a5;
+            letter-spacing: 8px;
+            margin-top: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== ОСНОВНОЙ КОНТЕЙНЕР ===== */
+        .scrapbook {
+            position: relative;
+            min-height: 3500px;
+            padding: 1rem 0 4rem;
+        }
+
+        /* ===== POLAROID-СТИЛЬ ===== */
+        .float-photo {
+            position: absolute;
+            border-radius: 4px 4px 20px 20px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+            background: #f5efe8;
+            padding: 12px 12px 30px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 220px;
+            cursor: pointer;
+            z-index: 10;
+            transform-origin: center bottom;
+        }
+
+        .float-photo::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 30px;
+            border-radius: 2px;
+            box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.08);
+            pointer-events: none;
+        }
+
+        .float-photo:hover {
+            transform: translateY(-18px) scale(1.04) rotate(0deg) !important;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 4px 16px rgba(0, 0, 0, 0.4);
+            border-color: rgba(220, 195, 175, 0.4);
+            z-index: 30;
+        }
+
+        .float-photo .photo {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #e8ddd0;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Quicksand', sans-serif;
+            color: #b08a78;
+            font-weight: 300;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        .float-photo .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .float-photo:hover .photo img {
+            transform: scale(1.02);
+        }
+
+        .float-photo .photo span {
+            background: rgba(44, 31, 26, 0.6);
+            padding: 6px 16px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            font-weight: 400;
+            color: #dbbca8;
+            font-size: 0.7rem;
+            border: 1px solid rgba(200, 170, 150, 0.2);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .float-photo .polaroid-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: #4d3830;
+            margin-top: 8px;
+            text-align: center;
+            letter-spacing: 0.5px;
+            padding: 0 4px;
+            width: 100%;
+            line-height: 1.3;
+            min-height: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 400;
+            opacity: 0.85;
+        }
+
+        /* ===== ТЕКСТОВЫЕ НАДПИСИ ===== */
+        .text-note {
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #f0dfd0;
+            padding: 0.6rem 1.4rem;
+            background: rgba(44, 31, 26, 0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 60px 12px 60px 12px;
+            border: 1px solid rgba(200, 170, 150, 0.15);
+            transition: all 0.3s ease;
+            cursor: default;
+            z-index: 8;
+            font-size: 1.15rem;
+            line-height: 1.5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-note:hover {
+            background: rgba(44, 31, 26, 0.7);
+            transform: scale(1.04);
+            border-color: rgba(200, 170, 150, 0.3);
+            z-index: 20;
+        }
+
+        .text-note.large {
+            font-size: 1.6rem;
+            padding: 1.2rem 2.2rem;
+            border-radius: 80px 16px 80px 16px;
+            background: rgba(44, 31, 26, 0.4);
+        }
+
+        .text-note .heart {
+            font-style: normal;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.3);
+                opacity: 1;
+            }
+        }
+
+        /* ===== УРОВНИ ГЛУБИНЫ ===== */
+        .level-back {
+            z-index: 9;
+            opacity: 1;
+            filter: none;
+            transform: scale(0.95);
+        }
+        .level-mid {
+            z-index: 10;
+            opacity: 1;
+            filter: none;
+        }
+        .level-front {
+            z-index: 11;
+            opacity: 1;
+            filter: none;
+            transform: scale(1.02);
+        }
+
+        /* ===== ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ===== */
+        .deco-line {
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, rgba(200, 170, 150, 0.15), transparent);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .sparkle {
+            position: absolute;
+            color: rgba(220, 195, 175, 0.15);
+            font-size: 2rem;
+            z-index: 1;
+            animation: twinkle 3s infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.1;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 0.4;
+                transform: scale(1.2);
+            }
+        }
+
+        /* ===== ВЕРЁВКА (SVG) ===== */
+        .rope-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 7;
+            pointer-events: none;
+            overflow: visible;
+        }
+
+        .rope-line {
+            fill: none;
+            stroke: url(#ropeGradient);
+            stroke-width: 12;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: url(#ropeTexture);
+        }
+
+        /* ===== БОЛЬШАЯ ЦИТАТА ===== */
+        .big-quote {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 900px;
+            text-align: center;
+            padding: 2.5rem 2.5rem;
+            background: rgba(44, 31, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 80px 12px 80px 12px;
+            border: 1px solid rgba(200, 170, 150, 0.15);
+            z-index: 8;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .big-quote p {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #f0dfd0;
+            line-height: 1.8;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .big-quote .author {
+            display: block;
+            margin-top: 0.8rem;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 300;
+            color: #d4b8a5;
+            letter-spacing: 4px;
+            font-size: 1rem;
+        }
+
+        /* ===== МОДАЛЬНОЕ ОКНО ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-content {
+            max-width: 80vw;
+            max-height: 80vh;
+            background: #f5efe8;
+            border-radius: 8px 8px 30px 30px;
+            padding: 20px 20px 35px 20px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            animation: scaleIn 0.3s ease;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 4px;
+            display: block;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            width: 48px;
+            height: 48px;
+            background: #5a3f32;
+            border: 2px solid rgba(200, 170, 150, 0.3);
+            border-radius: 50%;
+            color: #f0dfd0;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .modal-close:hover {
+            background: #7a5a4b;
+            transform: rotate(90deg);
+            border-color: #dbbca8;
+        }
+
+        .modal-caption {
+            text-align: center;
+            color: #4d3830;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-top: 14px;
+            padding: 0 10px;
+            font-weight: 400;
+        }
+
+        /* ===== ОТКРЫТКА ===== */
+        .envelope-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: overlayFade 0.6s ease;
+        }
+
+        @keyframes overlayFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .envelope-overlay.hidden {
+            animation: overlayHide 0.5s ease forwards;
+        }
+
+        @keyframes overlayHide {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0; transform: scale(1.1); }
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            cursor: pointer;
+            animation: envelopeFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes envelopeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Конверт */
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: #d4b8a5;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
+            transform-origin: center;
+        }
+
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e8d5c4 0%, #c4a692 100%);
+            border-radius: 8px;
+            z-index: 1;
+        }
+
+        /* Треугольник-клапан */
+        .envelope::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f0dfd0 0%, #d4b8a5 100%);
+            clip-path: polygon(50% 50%, 0 0, 100% 0);
+            border-radius: 8px 8px 0 0;
+            z-index: 2;
+            transition: all 0.6s cubic-bezier(0.4, 0.4, 0.2, 1);
+            transform-origin: top center;
+        }
+
+        .envelope.open::after {
+            transform: rotateX(180deg);
+            clip-path: polygon(50% 50%, 0 0, 100% 0);
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Сердечко на конверте */
+        .envelope-heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            z-index: 3;
+            animation: heartBeat 1.5s ease-in-out infinite;
+            pointer-events: none;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* Содержимое открытки */
+        .card-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #faf0e8, #f5efe8);
+            border-radius: 8px;
+            padding: 25px 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.8s cubic-bezier(0.4, 0.4, 0.2, 1);
+            z-index: 0;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .envelope.open .card-content {
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 4;
+        }
+
+        .card-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #4d3830;
+            margin-bottom: 8px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .card-content .divider {
+            width: 60px;
+            height: 1px;
+            background: #d4b8a5;
+            margin: 8px 0 12px;
+        }
+
+        .card-content p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #7a5a4b;
+            text-align: center;
+            line-height: 1.6;
+            font-size: 1rem;
+            max-width: 90%;
+            opacity: 0.85;
+        }
+
+        .card-content .signature {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: #b28b7a;
+            margin-top: 12px;
+            letter-spacing: 2px;
+            font-style: normal;
+        }
+
+        /* Кнопка закрытия */
+        .close-envelope {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(44, 31, 26, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(200, 170, 150, 0.2);
+            color: #f0dfd0;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        .close-envelope:hover {
+            background: rgba(44, 31, 26, 0.9);
+            border-color: rgba(200, 170, 150, 0.4);
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        /* Подпись "открой меня" */
+        .envelope-hint {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 300;
+            font-size: 0.8rem;
+            color: rgba(240, 223, 208, 0.5);
+            letter-spacing: 4px;
+            white-space: nowrap;
+            z-index: 3;
+            pointer-events: none;
+            animation: hintPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes hintPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 1100px) {
+            .float-photo {
+                width: 180px;
+            }
+            .text-note {
+                font-size: 1rem;
+            }
+            .text-note.large {
+                font-size: 1.3rem;
+                padding: 0.8rem 1.6rem;
+            }
+            .big-quote p {
+                font-size: 1.4rem;
+            }
+            .modal-content {
+                max-width: 90vw;
+                padding: 14px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .float-photo {
+                width: 140px;
+                padding: 8px 8px 22px 8px;
+            }
+            .float-photo .polaroid-text {
+                font-size: 0.65rem;
+                min-height: 1.4rem;
+                margin-top: 5px;
+            }
+            .text-note {
+                font-size: 0.85rem;
+                padding: 0.3rem 0.8rem;
+            }
+            .text-note.large {
+                font-size: 1.1rem;
+                padding: 0.6rem 1.2rem;
+            }
+            .header h1 {
+                font-size: 2.4rem;
+            }
+            .header h1::before,
+            .header h1::after {
+                font-size: 1.4rem;
+                margin: 0 10px;
+            }
+            .big-quote p {
+                font-size: 1.1rem;
+            }
+            .big-quote {
+                width: 92%;
+                padding: 1.5rem 1rem;
+            }
+            .modal-content {
+                max-width: 95vw;
+                padding: 12px 12px 25px 12px;
+            }
+            .modal-close {
+                width: 36px;
+                height: 36px;
+                font-size: 1.4rem;
+                top: -12px;
+                right: -12px;
+            }
+            .envelope {
+                width: 240px;
+                height: 160px;
+            }
+            .envelope-heart {
+                font-size: 2.2rem;
+            }
+            .card-content h2 {
+                font-size: 1.3rem;
+            }
+            .card-content p {
+                font-size: 0.85rem;
+            }
+            .envelope-hint {
+                font-size: 0.65rem;
+            }
+            .close-envelope {
+                font-size: 0.7rem;
+                padding: 6px 18px;
+                bottom: -45px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .float-photo {
+                width: 110px;
+                padding: 6px 6px 18px 6px;
+            }
+            .float-photo .polaroid-text {
+                font-size: 0.55rem;
+                min-height: 1.2rem;
+                margin-top: 4px;
+            }
+            .text-note {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+            .text-note.large {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .envelope {
+                width: 200px;
+                height: 140px;
+            }
+            .envelope-heart {
+                font-size: 1.8rem;
+            }
+            .card-content h2 {
+                font-size: 1.1rem;
+            }
+            .card-content p {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ===== ФУТЕР ===== */
+        .footer {
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 300;
+            color: #9a7a68;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(200, 170, 150, 0.1);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer i {
+            font-style: normal;
+            animation: pulse 2s infinite;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ===== ХЕДЕР ===== -->
+        <div class="header">
+            <h1>Наша история</h1>
+            <div class="subhead">✦ каждый миг — сокровище ✦</div>
+        </div>
+
+        <!-- ===== СКРАПБУК ===== -->
+        <div class="scrapbook">
+
+            <!-- ===== ДЕКОРАТИВНЫЕ ЗВЁЗДОЧКИ ===== -->
+            <div class="sparkle" style="left: 5%; top: 100px;">✦</div>
+            <div class="sparkle" style="right: 8%; top: 400px; animation-delay: 0.5s;">✦</div>
+            <div class="sparkle" style="left: 12%; top: 800px; animation-delay: 1s;">✦</div>
+            <div class="sparkle" style="right: 5%; top: 1200px; animation-delay: 0.3s;">✦</div>
+            <div class="sparkle" style="left: 20%; top: 1600px; animation-delay: 0.8s;">✦</div>
+            <div class="sparkle" style="right: 15%; top: 2000px; animation-delay: 0.2s;">✦</div>
+            <div class="sparkle" style="left: 8%; top: 2400px; animation-delay: 0.6s;">✦</div>
+            <div class="sparkle" style="right: 10%; top: 2800px; animation-delay: 1.2s;">✦</div>
+
+            <!-- ===== ВЕРЁВКА (SVG) - с сердцем по центру ===== -->
+            <svg class="rope-svg" viewBox="0 0 1600 3500" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="ropeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#8b5a3c" />
+                        <stop offset="50%" stop-color="#b88a6a" />
+                        <stop offset="100%" stop-color="#8b5a3c" />
+                    </linearGradient>
+                    <filter id="ropeTexture">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" />
+                    </filter>
+                </defs>
+
+                <!-- Ряд 1 -->
+                <path class="rope-line" d="M 0 70 C 200 110, 300 90, 450 100 S 800 80, 950 110 S 1300 70, 1600 90" />
+
+                <!-- Ряд 2 -->
+                <path class="rope-line" d="M 1600 410 C 1450 450, 1300 420, 1150 430 S 800 450, 650 440 S 300 410, 0 430" />
+
+                <!-- Ряд 3 -->
+                <path class="rope-line" d="M 0 770 C 200 810, 350 790, 500 800 S 900 780, 1050 800 S 1400 790, 1600 810" />
+
+                <!-- Ряд 4 -->
+                <path class="rope-line" d="M 1600 1150 C 1450 1190, 1300 1160, 1150 1170 S 800 1190, 650 1180 S 300 1150, 0 1170" />
+
+                <!-- Ряд 5 -->
+                <path class="rope-line" d="M 0 1530 C 200 1570, 350 1550, 500 1560 S 900 1540, 1050 1560 S 1400 1550, 1600 1570" />
+
+                <!-- Ряд 6 -->
+                <path class="rope-line" d="M 1600 1910 C 1450 1950, 1300 1920, 1150 1930 S 800 1950, 650 1940 S 300 1910, 0 1930" />
+
+                <!-- Ряд 7 -->
+                <path class="rope-line" d="M 0 2310 C 200 2350, 350 2330, 500 2340 S 900 2320, 1050 2340 S 1400 2330, 1600 2350" />
+
+                <!-- Ряд 8 -->
+                <path class="rope-line" d="M 1600 2710 C 1450 2750, 1300 2720, 1150 2730 S 800 2750, 650 2740 S 300 2710, 0 2730" />
+
+                <!-- ===== ВЕРЁВКА С СЕРДЦЕМ ПО ЦЕНТРУ (идёт слева направо, обвивается в сердце) ===== -->
+                <path class="rope-line" d="
+                    M 0 3050
+                    C 200 3050, 400 3040, 600 3050
+                    C 700 3055, 750 3060, 780 3080
+                    C 750 3030, 700 3000, 730 3000
+                    C 780 3000, 800 3040, 800 3080
+                    C 800 3040, 820 3000, 870 3000
+                    C 900 3000, 850 3030, 820 3080
+                    C 850 3060, 900 3055, 1000 3050
+                    C 1200 3040, 1400 3050, 1600 3030
+                " />
+            </svg>
+
+            <!-- ===== ФОТО И ТЕКСТЫ ===== -->
+
+            <!-- РЯД 1 -->
+            <div class="float-photo level-mid" style="left: 2%; top: 40px; transform: rotate(-3deg);" data-caption="Ты — моё утро">
+                <div class="photo"><img src="images/5253958537887555636.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моё утро</div>
+            </div>
+            <div class="text-note large" style="left: 16%; top: 100px; transform: rotate(2deg);">Ты — моё утро</div>
+
+            <div class="float-photo level-front" style="left: 28%; top: 30px; transform: rotate(5deg);" data-caption="С тобой я дома">
+                <div class="photo"><img src="images/5253958537887555637.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">С тобой я дома</div>
+            </div>
+            <div class="text-note" style="left: 42%; top: 80px; transform: rotate(-4deg);">С тобой я дома</div>
+
+            <div class="float-photo level-back" style="left: 55%; top: 20px; transform: rotate(-6deg);" data-caption="Твой смех — музыка">
+                <div class="photo"><img src="images/5253958537887555638.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Твой смех — музыка</div>
+            </div>
+            <div class="text-note large" style="left: 72%; top: 60px; transform: rotate(3deg);">Твой смех — музыка</div>
+
+            <div class="float-photo level-mid" style="left: 85%; top: 50px; transform: rotate(4deg);" data-caption="Ты — моя звезда">
+                <div class="photo"><img src="images/5253958537887555639.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя звезда</div>
+            </div>
+
+            <!-- РЯД 2 -->
+            <div class="float-photo level-front" style="left: 5%; top: 380px; transform: rotate(-5deg);" data-caption="Ты — мой свет">
+                <div class="photo"><img src="images/5253958537887555640.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — мой свет</div>
+            </div>
+            <div class="text-note large" style="left: 22%; top: 420px; transform: rotate(-2deg);">Ты — мой свет</div>
+
+            <div class="float-photo level-back" style="left: 40%; top: 340px; transform: rotate(7deg);" data-caption="С тобой время летит">
+                <div class="photo"><img src="images/5253958537887555641.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">С тобой время летит</div>
+            </div>
+            <div class="text-note" style="left: 58%; top: 390px; transform: rotate(4deg);">С тобой время летит</div>
+
+            <div class="float-photo level-mid" style="left: 72%; top: 350px; transform: rotate(-4deg);" data-caption="Ты — моя муза">
+                <div class="photo"><img src="images/5253958537887555642.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя муза</div>
+            </div>
+            <div class="text-note large" style="left: 88%; top: 400px; transform: rotate(-6deg);">Ты — моя муза</div>
+
+            <!-- РЯД 3 -->
+            <div class="float-photo level-back" style="left: 0%; top: 720px; transform: rotate(6deg);" data-caption="Любовь — это ты">
+                <div class="photo"><img src="images/5253958537887555643.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Любовь — это ты</div>
+            </div>
+            <div class="text-note" style="left: 15%; top: 780px; transform: rotate(-3deg);">Любовь — это ты</div>
+
+            <div class="float-photo level-front" style="left: 25%; top: 700px; transform: rotate(-7deg);" data-caption="Каждый день — чудо">
+                <div class="photo"><img src="images/5253958537887555644.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Каждый день — чудо</div>
+            </div>
+            <div class="text-note large" style="left: 44%; top: 760px; transform: rotate(5deg);">Каждый день — чудо</div>
+
+            <div class="float-photo level-mid" style="left: 58%; top: 710px; transform: rotate(3deg);" data-caption="Ты — моя вселенная">
+                <div class="photo"><img src="images/5253958537887555663.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя вселенная</div>
+            </div>
+            <div class="text-note" style="left: 76%; top: 770px; transform: rotate(-4deg);">Ты — моя вселенная</div>
+
+            <div class="float-photo level-back" style="left: 88%; top: 730px; transform: rotate(-2deg);" data-caption="Ты — моя жизнь">
+                <div class="photo"><img src="images/5253958537887555664.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя жизнь</div>
+            </div>
+
+            <!-- РЯД 4 -->
+            <div class="float-photo level-front" style="left: 3%; top: 1100px; transform: rotate(-4deg);" data-caption="Ты — моё вдохновение">
+                <div class="photo"><img src="images/5253958537887555665.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моё вдохновение</div>
+            </div>
+            <div class="text-note large" style="left: 20%; top: 1160px; transform: rotate(2deg);">Ты — моё вдохновение</div>
+
+            <div class="float-photo level-mid" style="left: 38%; top: 1080px; transform: rotate(6deg);" data-caption="Я люблю тебя">
+                <div class="photo"><img src="images/5253958537887555666.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Я люблю тебя</div>
+            </div>
+            <div class="text-note" style="left: 56%; top: 1140px; transform: rotate(-5deg);">Я люблю тебя</div>
+
+            <div class="float-photo level-back" style="left: 70%; top: 1090px; transform: rotate(-3deg);" data-caption="Навечно твой">
+                <div class="photo"><img src="images/5253958537887555667.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Навечно твой</div>
+            </div>
+            <div class="text-note large" style="left: 86%; top: 1150px; transform: rotate(4deg);">Навечно твой</div>
+
+            <!-- РЯД 5 -->
+            <div class="float-photo level-back" style="left: 10%; top: 1480px; transform: rotate(5deg);" data-caption="Ты — моя сила">
+                <div class="photo"><img src="images/5253958537887555668.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя сила</div>
+            </div>
+            <div class="text-note" style="left: 28%; top: 1540px; transform: rotate(-2deg);">Ты — моя сила</div>
+
+            <div class="float-photo level-front" style="left: 45%; top: 1460px; transform: rotate(-6deg);" data-caption="С тобой я счастлив">
+                <div class="photo"><img src="images/5253958537887555669.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">С тобой я счастлив</div>
+            </div>
+            <div class="text-note large" style="left: 63%; top: 1520px; transform: rotate(3deg);">С тобой я счастлив</div>
+
+            <div class="float-photo level-mid" style="left: 80%; top: 1470px; transform: rotate(4deg);" data-caption="Ты — моя мечта">
+                <div class="photo"><img src="images/5253958537887555670.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя мечта</div>
+            </div>
+
+            <!-- РЯД 6 -->
+            <div class="float-photo level-front" style="left: 2%; top: 1860px; transform: rotate(-3deg);" data-caption="Ты — мой мир">
+                <div class="photo"><img src="images/5253958537887555671.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — мой мир</div>
+            </div>
+            <div class="text-note large" style="left: 18%; top: 1920px; transform: rotate(2deg);">Ты — мой мир</div>
+
+            <div class="float-photo level-back" style="left: 35%; top: 1840px; transform: rotate(7deg);" data-caption="Бесконечность в твоих глазах">
+                <div class="photo"><img src="images/5253958537887555672.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Бесконечность в твоих глазах</div>
+            </div>
+            <div class="text-note" style="left: 52%; top: 1900px; transform: rotate(-4deg);">Бесконечность в твоих глазах</div>
+
+            <div class="float-photo level-mid" style="left: 68%; top: 1850px; transform: rotate(-5deg);" data-caption="Ты — моя жизнь">
+                <div class="photo"><img src="images/5253958537887555673.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя жизнь</div>
+            </div>
+            <div class="text-note large" style="left: 84%; top: 1910px; transform: rotate(3deg);">Ты — моя жизнь</div>
+
+            <!-- РЯД 7 -->
+            <div class="float-photo level-back" style="left: 6%; top: 2260px; transform: rotate(-4deg);" data-caption="Ты — моё счастье">
+                <div class="photo"><img src="images/5253958537887555674.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моё счастье</div>
+            </div>
+            <div class="text-note" style="left: 24%; top: 2320px; transform: rotate(2deg);">Ты — моё счастье</div>
+
+            <div class="float-photo level-front" style="left: 42%; top: 2240px; transform: rotate(5deg);" data-caption="Ты — моя мечта">
+                <div class="photo"><img src="images/5253958537887555675.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя мечта</div>
+            </div>
+            <div class="text-note large" style="left: 60%; top: 2300px; transform: rotate(-3deg);">Ты — моя мечта</div>
+
+            <div class="float-photo level-mid" style="left: 78%; top: 2250px; transform: rotate(-6deg);" data-caption="Ты — моя вечность">
+                <div class="photo"><img src="images/5253958537887555682.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя вечность</div>
+            </div>
+
+            <!-- РЯД 8 -->
+            <div class="float-photo level-front" style="left: 4%; top: 2660px; transform: rotate(3deg);" data-caption="Ты — моя вечность">
+                <div class="photo"><img src="images/5253958537887555676.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя вечность</div>
+            </div>
+            <div class="text-note large" style="left: 22%; top: 2720px; transform: rotate(-4deg);">Ты — моя вечность</div>
+
+            <div class="float-photo level-back" style="left: 42%; top: 2640px; transform: rotate(-5deg);" data-caption="Ты — моя любовь">
+                <div class="photo"><img src="images/5253958537887555677.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя любовь</div>
+            </div>
+            <div class="text-note" style="left: 60%; top: 2700px; transform: rotate(2deg);">Ты — моя любовь</div>
+
+            <div class="float-photo level-mid" style="left: 78%; top: 2650px; transform: rotate(6deg);" data-caption="Ты — моя вселенная">
+                <div class="photo"><img src="images/5253958537887555678.jpg" alt="Наше фото" /></div>
+                <div class="polaroid-text">Ты — моя вселенная</div>
+            </div>
+
+            <!-- ===== ДЕКОРАТИВНЫЕ ЛИНИИ ===== -->
+            <div class="deco-line" style="left: 15%; top: 200px; height: 400px;"></div>
+            <div class="deco-line" style="right: 10%; top: 600px; height: 500px;"></div>
+            <div class="deco-line" style="left: 50%; top: 1000px; height: 600px;"></div>
+            <div class="deco-line" style="left: 30%; top: 1500px; height: 400px;"></div>
+            <div class="deco-line" style="right: 20%; top: 2000px; height: 500px;"></div>
+
+            <!-- ===== БОЛЬШАЯ ЦИТАТА ===== -->
+            <div class="big-quote">
+                <p>
+                    «Любить — это видеть чудо в каждом дне,<br />
+                    находить свет в твоих глазах,<br />
+                    и знать, что весь мир — это мы.»
+                </p>
+                <span class="author">— твой самый преданный поклонник ❤️ —</span>
+            </div>
+
+        </div>
+
+        <!-- ===== ФУТЕР ===== -->
+        <div class="footer">
+            <i>✨ для тебя, моя любимая, с самой чистой любовью ✨</i>
+            <br /><span style="font-size: 0.75rem; opacity: 0.6; letter-spacing: 3px;">твой Ванёк</span>
+        </div>
+    </div>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">✕</button>
+            <img id="modalImage" src="" alt="Фото" />
+            <div class="modal-caption" id="modalCaption">Ты — моё счастье</div>
+        </div>
+    </div>
+
+    <!-- ===== ОТКРЫТКА-КОНВЕРТ ===== -->
+    <div class="envelope-overlay" id="envelopeOverlay">
+        <div class="envelope-wrapper">
+            <div class="envelope" id="envelope">
+                <div class="envelope-heart">❤️</div>
+                <div class="card-content">
+                    <h2>Моей любимой</h2>
+                    <div class="divider"></div>
+                    <p>
+                        «Ты — самая красивая глава<br />
+                        моей жизни. Спасибо, что ты есть»
+                    </p>
+                    <span class="signature">— навсегда твой Ванёк —</span>
+                </div>
+            </div>
+            <div class="envelope-hint">~ открой меня ~</div>
+            <button class="close-envelope" id="closeEnvelope">✕ закрыть</button>
+        </div>
+    </div>
+
+    <!-- ===== СКРИПТ ===== -->
+    <script>
+        (function() {
+            // === ОТКРЫТКА ===
+            const envelope = document.getElementById('envelope');
+            const overlay = document.getElementById('envelopeOverlay');
+            const closeBtn = document.getElementById('closeEnvelope');
+            let isOpen = false;
+
+            // Открытие по клику на конверт
+            envelope.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (!isOpen) {
+                    this.classList.add('open');
+                    isOpen = true;
+                    const hint = document.querySelector('.envelope-hint');
+                    if (hint) hint.style.opacity = '0';
+                }
+            });
+
+            // Закрытие открытки
+            function closeEnvelope() {
+                overlay.classList.add('hidden');
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 500);
+                document.body.style.overflow = 'auto';
+            }
+
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeEnvelope();
+            });
+
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeEnvelope();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && overlay.style.display !== 'none') {
+                    closeEnvelope();
+                }
+            });
+
+            // === МОДАЛЬНОЕ ОКНО ===
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalImg = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            const modalCloseBtn = document.getElementById('modalClose');
+
+            const photos = document.querySelectorAll('.float-photo');
+            photos.forEach(photo => {
+                photo.addEventListener('click', function(e) {
+                    e.stopPropagation();
+
+                    const img = this.querySelector('.photo img');
+                    const placeholder = this.querySelector('.photo span');
+                    const caption = this.getAttribute('data-caption') || 'Ты — моё счастье 💕';
+
+                    if (img) {
+                        modalImg.src = img.src;
+                        modalImg.alt = img.alt || 'Наше фото';
+                        modalImg.style.display = 'block';
+                    } else if (placeholder) {
+                        modalImg.style.display = 'none';
+                        modalCaption.textContent = '📸 ' + placeholder.textContent + ' — ' + caption;
+                    }
+
+                    modalCaption.textContent = caption;
+                    modalOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeModal() {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeModal();
+            });
+
+            // === ВСПЛЫВАЮЩИЕ СООБЩЕНИЯ ===
+            const notes = document.querySelectorAll('.text-note');
+            const messages = [
+                'Ты — моё счастье 💕',
+                'Обожаю твою улыбку 😊',
+                'Ты — лучшая часть моей жизни ✨',
+                'Хочу быть с тобой всегда 🌹',
+                'Ты — моя вселенная 🌌',
+                'Ты — моя муза 🎨',
+                'С тобой я чувствую себя дома 🏡',
+                'Ты — мой свет в темноте 🌟',
+                'Люблю тебя бесконечно ❤️',
+                'Ты — моя самая красивая мысль 💭'
+            ];
+
+            notes.forEach((note, index) => {
+                note.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    showToast(messages[index % messages.length]);
+                });
+            });
+
+            function showToast(msg) {
+                const toast = document.createElement('div');
+                toast.textContent = msg;
+                toast.style.position = 'fixed';
+                toast.style.bottom = '30px';
+                toast.style.left = '50%';
+                toast.style.transform = 'translateX(-50%)';
+                toast.style.background = 'rgba(44, 31, 26, 0.9)';
+                toast.style.color = '#f0dfd0';
+                toast.style.padding = '16px 40px';
+                toast.style.borderRadius = '60px';
+                toast.style.fontFamily = "'Playfair Display', serif";
+                toast.style.fontSize = '1.4rem';
+                toast.style.fontStyle = 'italic';
+                toast.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.6)';
+                toast.style.backdropFilter = 'blur(8px)';
+                toast.style.border = '1px solid rgba(200, 170, 150, 0.2)';
+                toast.style.letterSpacing = '1px';
+                toast.style.zIndex = '9999';
+                toast.style.transition = 'opacity 0.3s';
+                toast.style.opacity = '0';
+                toast.style.maxWidth = '90vw';
+                toast.style.textAlign = 'center';
+                document.body.appendChild(toast);
+
+                requestAnimationFrame(() => {
+                    toast.style.opacity = '1';
+                });
+
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => {
+                        if (toast.parentNode) toast.remove();
+                    }, 400);
+                }, 2500);
+            }
+        })();
+    </script>
+</body>
+</html>
